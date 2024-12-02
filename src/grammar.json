@@ -1,5 +1,5 @@
 {
-  "name": "yaml",
+  "name": "ansible",
   "rules": {
     "stream": {
       "type": "SEQ",

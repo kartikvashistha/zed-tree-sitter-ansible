@@ -1,6 +1,6 @@
-VERSION := 0.6.1
+VERSION := 0.0.1
 
-LANGUAGE_NAME := tree-sitter-yaml
+LANGUAGE_NAME := tree-sitter-ansible
 
 # repository
 SRC_DIR := src
@@ -28,9 +28,9 @@ LIBDIR ?= $(PREFIX)/lib
 PCLIBDIR ?= $(LIBDIR)/pkgconfig
 
 # source/object files
-PARSER := src/parser.c
-SCANNER := src/scanner.c
-OBJS := $(patsubst %.c,%.o,$(PARSER) $(SCANNER))
+PARSER := $(SRC_DIR)/parser.c
+EXTRAS := $(filter-out $(PARSER),$(wildcard $(SRC_DIR)/*.c))
+OBJS := $(patsubst %.c,%.o,$(PARSER) $(EXTRAS))
 
 # flags
 ARFLAGS ?= rcs
@@ -108,6 +108,5 @@ clean:
 
 test:
 	$(TS) test
-	$(TS) parse examples/* --quiet --time
 
 .PHONY: all install uninstall clean test

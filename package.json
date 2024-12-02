@@ -1,27 +1,16 @@
 {
-  "name": "@tree-sitter-grammars/tree-sitter-yaml",
-  "version": "0.6.1",
+  "name": "tree-sitter-ansible",
+  "version": "0.0.1",
+  "description": "Ansible grammar for tree-sitter",
+  "repository": "github:kartikvashistha/zed-tree-sitter-ansible",
   "license": "MIT",
-  "description": "YAML grammar for tree-sitter",
-  "repository": "github:tree-sitter-grammars/tree-sitter-yaml",
   "main": "bindings/node",
   "types": "bindings/node",
-  "author": {
-    "name": "Ika",
-    "email": "ikatyang@gmail.com",
-    "url": "https://github.com/ikatyang"
-  },
-  "maintainers": [
-    {
-      "name": "Amaan Qureshi",
-      "email": "amaanq12@gmail.com"
-    }
-  ],
   "keywords": [
     "incremental",
     "parsing",
     "tree-sitter",
-    "yaml"
+    "ansible"
   ],
   "files": [
     "grammar.js",
@@ -29,46 +18,36 @@
     "prebuilds/**",
     "bindings/node/*",
     "queries/*",
-    "src/**",
-    "schema/**"
+    "src/**"
   ],
   "dependencies": {
-    "node-addon-api": "^8.0.0",
+    "node-addon-api": "^7.1.0",
     "node-gyp-build": "^4.8.0"
   },
   "devDependencies": {
-    "prebuildify": "^6.0.1",
-    "tree-sitter-cli": "^0.23.0"
+    "prebuildify": "^6.0.0",
+    "tree-sitter-cli": "^0.22.5"
   },
   "peerDependencies": {
-    "tree-sitter": "^0.21.1"
+    "tree-sitter": "^0.21.0"
   },
   "peerDependenciesMeta": {
-    "tree_sitter": {
+    "tree-sitter": {
       "optional": true
     }
   },
   "scripts": {
     "install": "node-gyp-build",
-    "prestart": "tree-sitter build --wasm",
-    "start": "tree-sitter playground",
-    "test": "node --test bindings/node/*_test.js"
-  },
-  "publishConfig": {
-    "access": "public"
+    "prebuildify": "prebuildify --napi --strip",
+    "build": "tree-sitter generate --no-bindings",
+    "build-wasm": "tree-sitter build --wasm",
+    "test": "tree-sitter test",
+    "parse": "tree-sitter parse"
   },
   "tree-sitter": [
     {
-      "scope": "text.yaml",
-      "file-types": [
-        "yml",
-        "yaml"
-      ],
-      "injection-regex": "^ya?ml$",
-      "highlights": "queries/highlights.scm",
-      "external-files": [
-        "src/schema.core.c"
-      ]
+      "scope": "source.ansible",
+      "injection-regex": "^ansible$"
     }
   ]
 }

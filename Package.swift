@@ -2,13 +2,13 @@
 import PackageDescription
 
 let package = Package(
-    name: "TreeSitterYAML",
+    name: "TreeSitterAnsible",
     products: [
-        .library(name: "TreeSitterYAML", targets: ["TreeSitterYAML"]),
+        .library(name: "TreeSitterAnsible", targets: ["TreeSitterAnsible"]),
     ],
     dependencies: [],
     targets: [
-        .target(name: "TreeSitterYAML",
+        .target(name: "TreeSitterAnsible",
                 path: ".",
                 exclude: [
                     "Cargo.toml",
@@ -35,7 +35,7 @@ let package = Package(
                 ],
                 sources: [
                     "src/parser.c",
-                    "src/scanner.c",
+                    // NOTE: if your language has an external scanner, add it here.
                 ],
                 resources: [
                     .copy("queries")

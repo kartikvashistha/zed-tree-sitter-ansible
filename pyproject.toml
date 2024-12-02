@@ -3,10 +3,10 @@ requires = ["setuptools>=42", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "tree-sitter-yaml"
-description = "YAML grammar for tree-sitter"
-version = "0.6.1"
-keywords = ["incremental", "parsing", "tree-sitter", "yaml"]
+name = "tree-sitter-ansible"
+description = "Ansible grammar for tree-sitter"
+version = "0.0.1"
+keywords = ["incremental", "parsing", "tree-sitter", "ansible"]
 classifiers = [
   "Intended Audience :: Developers",
   "License :: OSI Approved :: MIT License",
@@ -18,16 +18,8 @@ requires-python = ">=3.8"
 license.text = "MIT"
 readme = "README.md"
 
-[[project.authors]]
-name = "Ika"
-email = "ikatyang@gmail.com"
-
-[[project.maintainers]]
-name = "Amaan Qureshi"
-email = "amaanq12@gmail.com"
-
 [project.urls]
-Homepage = "https://github.com/tree-sitter-grammars/tree-sitter-yaml"
+Homepage = "https://github.com/kartikvashistha/zed-tree-sitter-ansible"
 
 [project.optional-dependencies]
 core = ["tree-sitter~=0.21"]

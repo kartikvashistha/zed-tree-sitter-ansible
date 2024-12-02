@@ -1375,30 +1375,30 @@ static bool scan(Scanner *scanner, TSLexer *lexer, const bool *valid_symbols) {
     return !valid_symbols[ERR_REC];
 }
 
-void *tree_sitter_yaml_external_scanner_create() {
+void *tree_sitter_ansible_external_scanner_create() {
     Scanner *scanner = ts_calloc(1, sizeof(Scanner));
     deserialize(scanner, NULL, 0);
     return scanner;
 }
 
-void tree_sitter_yaml_external_scanner_destroy(void *payload) {
+void tree_sitter_ansible_external_scanner_destroy(void *payload) {
     Scanner *scanner = (Scanner *)payload;
     array_delete(&scanner->ind_len_stk);
     array_delete(&scanner->ind_typ_stk);
     ts_free(scanner);
 }
 
-unsigned tree_sitter_yaml_external_scanner_serialize(void *payload, char *buffer) {
+unsigned tree_sitter_ansible_external_scanner_serialize(void *payload, char *buffer) {
     Scanner *scanner = (Scanner *)payload;
     return serialize(scanner, buffer);
 }
 
-void tree_sitter_yaml_external_scanner_deserialize(void *payload, const char *buffer, unsigned length) {
+void tree_sitter_ansible_external_scanner_deserialize(void *payload, const char *buffer, unsigned length) {
     Scanner *scanner = (Scanner *)payload;
     deserialize(scanner, buffer, length);
 }
 
-bool tree_sitter_yaml_external_scanner_scan(void *payload, TSLexer *lexer, const bool *valid_symbols) {
+bool tree_sitter_ansible_external_scanner_scan(void *payload, TSLexer *lexer, const bool *valid_symbols) {
     Scanner *scanner = (Scanner *)payload;
     return scan(scanner, lexer, valid_symbols);
 }

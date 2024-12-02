@@ -1,13 +1,8 @@
-/**
- * @file YAML grammar for tree-sitter
- * @author Ika <ikatyang@gmail.com>
- * @license MIT
- */
-
 /// <reference types="tree-sitter-cli/dsl" />
+// @ts-check
 
 module.exports = grammar({
-  name: "yaml",
+  name: "ansible",
 
   externals: $ => [
     $._eof,
