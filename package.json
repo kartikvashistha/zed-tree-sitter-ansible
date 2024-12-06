@@ -18,15 +18,16 @@
     "prebuilds/**",
     "bindings/node/*",
     "queries/*",
-    "src/**"
+    "src/**",
+    "schema/**"
   ],
   "dependencies": {
-    "node-addon-api": "^7.1.0",
+    "node-addon-api": "^8.0.0",
     "node-gyp-build": "^4.8.0"
   },
   "devDependencies": {
     "prebuildify": "^6.0.0",
-    "tree-sitter-cli": "^0.22.5"
+    "tree-sitter-cli": "^0.23.0"
   },
   "peerDependencies": {
     "tree-sitter": "^0.21.0"
@@ -38,16 +39,18 @@
   },
   "scripts": {
     "install": "node-gyp-build",
-    "prebuildify": "prebuildify --napi --strip",
-    "build": "tree-sitter generate --no-bindings",
-    "build-wasm": "tree-sitter build --wasm",
-    "test": "tree-sitter test",
-    "parse": "tree-sitter parse"
+    "prestart": "tree-sitter build --wasm",
+    "start": "tree-sitter playground",
+    "test": "node --test bindings/node/*_test.js"
   },
   "tree-sitter": [
     {
       "scope": "source.ansible",
-      "injection-regex": "^ansible$"
+      "injection-regex": "^ansible$",
+      "highlights": "queries/highlights.scm",
+      "external-files": [
+        "src/schema.core.c"
+      ]
     }
   ]
 }
