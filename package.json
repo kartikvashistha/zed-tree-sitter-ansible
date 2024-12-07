@@ -46,6 +46,10 @@
   "tree-sitter": [
     {
       "scope": "source.ansible",
+      "file-types": [
+        "ansible.yml",
+        "ansible.yaml"
+      ],
       "injection-regex": "^ansible$",
       "highlights": "queries/highlights.scm",
       "external-files": [
