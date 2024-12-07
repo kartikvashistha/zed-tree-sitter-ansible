@@ -3,8 +3,8 @@ package tree_sitter_ansible_test
 import (
 	"testing"
 
-	tree_sitter "github.com/smacker/go-tree-sitter"
-	"github.com/tree-sitter/tree-sitter-ansible"
+	tree_sitter "github.com/tree-sitter/go-tree-sitter"
+	tree_sitter_ansible "github.com/tree-sitter/tree-sitter-ansible/bindings/go"
 )
 
 func TestCanLoadGrammar(t *testing.T) {
